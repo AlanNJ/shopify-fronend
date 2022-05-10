@@ -95,7 +95,10 @@ export const CartPage = (props) => {
 			params,
 		};
 
-		const data = await axios.post("http://localhost:5000/post/payment", body);
+		const data = await axios.post(
+			"https://shopify-backend7777.herokuapp.com/post/payment",
+			body
+		);
 		console.log(data.data.result);
 		if (data.data.result) {
 			props.emptyCart();
@@ -112,7 +115,10 @@ export const CartPage = (props) => {
 			params,
 		};
 		console.log(body);
-		const data = await axios.post("http://localhost:5000/post/test", body);
+		const data = await axios.post(
+			"https://shopify-backend7777.herokuapp.com/post/test",
+			body
+		);
 	};
 	const docross = (e) => {
 		e.preventDefault();

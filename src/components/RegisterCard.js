@@ -12,12 +12,15 @@ export const RegisterCard = () => {
 	const [phone, setPhone] = useState();
 	const registerUser = async () => {
 		if (name && email && password && phone) {
-			const res = await axios.post("http://localhost:5000/api/register/", {
-				name,
-				email,
-				password,
-				phone,
-			});
+			const res = await axios.post(
+				"https://shopify-backend7777.herokuapp.com/api/register/",
+				{
+					name,
+					email,
+					password,
+					phone,
+				}
+			);
 			if (res.data.ok == true) {
 				navigate("/login");
 			}

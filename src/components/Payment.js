@@ -15,7 +15,7 @@ const stripePromise = loadStripe(
 
 export const Payment = () => {
 	const [payment, setPayment] = useState(false);
-	const param = useParams()
+	const param = useParams();
 	// const options = {
 	// 	// passing the client secret obtained from the server
 	// 	clientSecret:{{"sk_test_51Ks9rESGIDSGcSMpQeSxCpAb5LWdmx1OU0qScHxY1MfFv5sl1yMKoj5DdfmwByykSpbwgiHXGl0vVdd04w2NVCeR00SlolJHEx"}}
@@ -29,7 +29,10 @@ export const Payment = () => {
 			token,
 		};
 		console.log(token);
-		const data = await axios.post("http://localhost:5000/post/payment", body);
+		const data = await axios.post(
+			"https://shopify-backend7777.herokuapp.com/post/payment",
+			body
+		);
 		console.log(data);
 		setPayment(true);
 	};

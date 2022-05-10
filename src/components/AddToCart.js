@@ -24,7 +24,9 @@ export const AddToCart = (props) => {
 		}
 
 		axios
-			.get(`http://localhost:5000/post/get-single-post/${props.params.id}`)
+			.get(
+				`https://shopify-backend7777.herokuapp.com/post/get-single-post/${props.params.id}`
+			)
 			.then((res) => {
 				console.log(res.data);
 				console.log(res.data.post.price);

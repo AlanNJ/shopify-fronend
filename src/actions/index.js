@@ -64,7 +64,7 @@ export const loginUser = (data) => {
 	return (dispatch) => {
 		console.log("hello");
 		axios
-			.post("http://localhost:5000/api/login/", data)
+			.post("https://shopify-backend7777.herokuapp.com/api/login/", data)
 			.then((response) => {
 				console.log(response.data.user);
 				toast.success("Logged in successfully");
@@ -88,16 +88,20 @@ export const getInitial = () => {
 	};
 };
 async function gett() {
-	const data = await axios.get("http://localhost:5000/post/get-post/");
+	const data = await axios.get(
+		"https://shopify-backend7777.herokuapp.com/post/get-post/"
+	);
 	return data.data.post;
 }
 export const getInitialProducts = () => {
 	console.log("hello");
 	return (dispatch) => {
-		axios.get("http://localhost:5000/post/get-post/").then((res) => {
-			console.log(res.data.post);
-			dispatch(setProducts(res.data.post));
-		});
+		axios
+			.get("https://shopify-backend7777.herokuapp.com/post/get-post/")
+			.then((res) => {
+				console.log(res.data.post);
+				dispatch(setProducts(res.data.post));
+			});
 		//console.log(result);
 
 		//dispatch(setProducts(result));
@@ -117,7 +121,7 @@ export const add = (obj) => {
 	console.log(quantity);
 	return (dispatch) => {
 		axios
-			.post(`http://localhost:5000/post/add-to-cart/`, {
+			.post(`https://shopify-backend7777.herokuapp.com/post/add-to-cart/`, {
 				post: post,
 				id: idd,
 				total: total,
@@ -135,9 +139,12 @@ export const remove = (obj) => {
 	console.log(obj);
 	return (dispatch) => {
 		axios
-			.patch(`http://localhost:5000/post/remove-item/${obj.key}`, {
-				headers: obj.params,
-			})
+			.patch(
+				`https://shopify-backend7777.herokuapp.com/post/remove-item/${obj.key}`,
+				{
+					headers: obj.params,
+				}
+			)
 			.then((res) => {
 				dispatch(removeFromCart(res.data.post));
 			});
@@ -147,7 +154,9 @@ export const getInitialDataCartData = (obj) => {
 	console.log(obj);
 	return (dispatch) => {
 		axios
-			.get(`http://localhost:5000/post/get-cart-items/${obj}`)
+			.get(
+				`https://shopify-backend7777.herokuapp.com/post/get-cart-items/${obj}`
+			)
 			.then((res) => dispatch(cartData(res.data.cartItems)));
 	};
 };

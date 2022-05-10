@@ -27,7 +27,7 @@ export const PurchasePage = (props) => {
 	const getPurchasedItems = async () => {
 		setLoading(true);
 		let data = await axios.get(
-			`http://localhost:5000/post/get-purchased-goods/${params.id}`
+			`https://shopify-backend7777.herokuapp.com/post/get-purchased-goods/${params.id}`
 		);
 		setItems(data.data.items);
 		setLoading(false);
