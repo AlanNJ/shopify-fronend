@@ -6,16 +6,16 @@ import Revieww from "./Review";
 import Search from "./Search";
 import SingleCard from "./SingleCard";
 import Footer from "./Footer";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getInitial } from "../actions";
 import Loader from "./Loader";
 
 export const SingleProduct = (props) => {
 	const [param, setParam] = useState({});
-	const navigate = useNavigate();
+
 	const params = useParams();
 	const [loading, setLoading] = useState(false);
 	useLayoutEffect(() => {

@@ -1,7 +1,7 @@
 import Home from "./components/Home";
 import "./index.css";
 import "./new.css";
-import { Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { SingleProduct } from "./components/SingleProduct";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -14,7 +14,6 @@ import { useState, useEffect } from "react";
 
 function App() {
 	const [isLoading, setLoading] = useState(true);
-	const [newIdentifier, setNewIdentifier] = useState(false);
 
 	function fakeRequest() {
 		return new Promise((resolve) => setTimeout(() => resolve(), 2500));
@@ -28,7 +27,7 @@ function App() {
 				setLoading(!isLoading);
 			}
 		});
-	}, []);
+	}, [isLoading]);
 
 	if (isLoading) {
 		return null;

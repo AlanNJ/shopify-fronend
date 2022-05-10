@@ -2,14 +2,14 @@ import React from "react";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Search from "./Search";
-import { MdArrowDropDown } from "react-icons/md";
+
 import { useLayoutEffect, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImCross } from "react-icons/im";
-import { toast } from "react-toastify";
+
 import { connect } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import {
@@ -50,6 +50,7 @@ export const CartPage = (props) => {
 				console.log(item?.total);
 				res = res + item?.total;
 				setSum(res);
+				return sum;
 			});
 		}
 	};
@@ -106,20 +107,20 @@ export const CartPage = (props) => {
 		}
 		setLoading(false);
 	};
-	const testFucn = async () => {
-		let body = {
-			product: "A brand new car",
-			price: sum,
-
-			cartItem: cartItem,
-			params,
-		};
-		console.log(body);
-		const data = await axios.post(
-			"https://shopify-backend7777.herokuapp.com/post/test",
-			body
-		);
-	};
+	// const testFucn = async () => {
+	// 	let body = {
+	// 		product: "A brand new car",
+	// 		price: sum,
+	//
+	// 		cartItem: cartItem,
+	// 		params,
+	// 	};
+	// 	console.log(body);
+	// 	const data = await axios.post(
+	// 		"https://shopify-backend7777.herokuapp.com/post/test",
+	// 		body
+	// 	);
+	// };
 	const docross = (e) => {
 		e.preventDefault();
 		console.log("hovered");

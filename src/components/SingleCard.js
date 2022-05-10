@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useState } from "react";
 import { connect } from "react-redux";
 import axios from "axios";

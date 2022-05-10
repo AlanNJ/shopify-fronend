@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiOutlineStar } from "react-icons/ai";
-import { CgProfile } from "react-icons/cg";
-import { MdArrowDropDown } from "react-icons/md";
+
 import axios from "axios";
 import { useLayoutEffect } from "react";
 import { connect } from "react-redux";
 import { add, getInitial } from "../actions";
 
-import { toast } from "react-toastify";
-
 export const AddToCart = (props) => {
 	const [post, setPost] = useState([]);
 	const [price, setPrice] = useState();
 	const [total, setTotal] = useState();
-	const [id, setId] = useState();
+
 	const [user, setUser] = useState({});
 	const [quantity, setQuantity] = useState(1);
 
@@ -34,7 +31,7 @@ export const AddToCart = (props) => {
 				setPrice(res.data.post.price);
 				setTotal(res.data.post.price);
 			});
-	}, [props?.user?.user?.user?._id]);
+	}, [props.user?.user?.user?._id]);
 	console.log(price);
 	var idd = props.user.user && props.user.user.user._id;
 	console.log(user);

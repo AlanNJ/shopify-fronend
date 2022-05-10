@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import Navbar from "./Navbar";
-import ProductCard from "./ProductCard";
+
 import Header from "./Header";
 import Search from "./Search";
 import Banner from "./Banner";
@@ -13,7 +13,6 @@ import {
 	getInitial,
 	getInitialProducts,
 	loginUser,
-	getCartData,
 	getInitialDataCartData,
 } from "../actions";
 import Loader from "./Loader";

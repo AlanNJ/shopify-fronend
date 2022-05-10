@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import Search from "./Search";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import SingleCard from "./SingleCard";
+
 import Loader from "./Loader";
 import { connect } from "react-redux";
 import { getInitial } from "../actions";
@@ -23,7 +23,7 @@ export const PurchasePage = (props) => {
 			navigate("/login");
 		}
 	}, [props.user?.user?.user?._id]);
-	let arr = [];
+
 	const getPurchasedItems = async () => {
 		setLoading(true);
 		let data = await axios.get(

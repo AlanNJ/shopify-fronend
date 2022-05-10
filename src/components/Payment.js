@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Search from "./Search";
-import { Elements } from "@stripe/react-stripe-js";
+
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckOutForm";
+
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -15,7 +15,7 @@ const stripePromise = loadStripe(
 
 export const Payment = () => {
 	const [payment, setPayment] = useState(false);
-	const param = useParams();
+
 	// const options = {
 	// 	// passing the client secret obtained from the server
 	// 	clientSecret:{{"sk_test_51Ks9rESGIDSGcSMpQeSxCpAb5LWdmx1OU0qScHxY1MfFv5sl1yMKoj5DdfmwByykSpbwgiHXGl0vVdd04w2NVCeR00SlolJHEx"}}

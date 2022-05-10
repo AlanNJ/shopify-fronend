@@ -5,7 +5,6 @@ import { CgProfile } from "react-icons/cg";
 import { MdArrowDropDown } from "react-icons/md";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import Search from "./Search";
 import { getInitial, logout, getInitialDataCartData } from "../actions";
 
 export const Navbar = (props) => {
@@ -27,7 +26,6 @@ export const Navbar = (props) => {
 
 	var id = props?.user?.user?.user?._id;
 
-	let dropdown = false;
 	const helper = async () => {
 		props.getInitialData();
 		if (

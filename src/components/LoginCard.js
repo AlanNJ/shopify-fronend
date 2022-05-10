@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+
 import { connect } from "react-redux";
 import { loginUser } from "../actions";
 import { getInitial } from "../actions";

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+
 import {
 	ADD_TO_CART,
 	DELETE_CART,
@@ -87,12 +87,12 @@ export const getInitial = () => {
 		dispatch(getInitialData(data));
 	};
 };
-async function gett() {
-	const data = await axios.get(
-		"https://shopify-backend7777.herokuapp.com/post/get-post/"
-	);
-	return data.data.post;
-}
+//  async function gett() {
+//  	const data = await axios.get(
+//  		"https://shopify-backend7777.herokuapp.com/post/get-post/"
+//  	);
+//  	return data.data.post;
+//  }
 export const getInitialProducts = () => {
 	console.log("hello");
 	return (dispatch) => {
@@ -109,7 +109,6 @@ export const getInitialProducts = () => {
 };
 export const logout = () => {
 	return (dispatch) => {
-		const data = localStorage.removeItem("User");
 		dispatch(logoutUser(null));
 	};
 };

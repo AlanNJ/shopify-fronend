@@ -1,7 +1,6 @@
 import React from "react";
 import "../index.css";
 import { BsFacebook, BsInstagram, BsLinkedin, BsGithub } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
 export const Header = () => {
 	return (
