@@ -64,7 +64,7 @@ export const loginUser = (data) => {
 	return (dispatch) => {
 		console.log("hello");
 		axios
-			.post("https://shopify-backend7777.herokuapp.com/api/login/", data)
+			.post("https://shopify-backend7777.herokuapp.com/auth/login/", data)
 			.then((response) => {
 				console.log(response.data.user);
 				toast.success("Logged in successfully");
