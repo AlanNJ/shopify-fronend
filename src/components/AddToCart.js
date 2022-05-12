@@ -32,9 +32,9 @@ export const AddToCart = (props) => {
 				setTotal(res.data.post.price);
 			});
 	}, [props.user?.user?.user?._id]);
-	console.log(price);
+
 	var idd = props.user.user && props.user.user.user._id;
-	console.log(user);
+
 	let obj1 = { post, idd, total, quantity };
 
 	const addToCart = async () => {

@@ -22,8 +22,7 @@ export const SingleProduct = (props) => {
 		setParam(params.id);
 
 		//if (!props.user) navigate("/login");
-	}, []);
-	console.log(props.user);
+	}, [loading]);
 
 	return (
 		<div>

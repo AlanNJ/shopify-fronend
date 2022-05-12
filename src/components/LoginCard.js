@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -28,11 +28,10 @@ const LoginCard = (props) => {
 		await props.login(loginDetails);
 		setLoading(false);
 	};
-	console.log(props.user);
 
 	return (
 		<div>
-			{!props.user.loading ? (
+			{!loading ? (
 				<div className="w-[90vw] h-[40vh] mt-[10vh] flex flex-col items-center py-10 border shadow rounded sm:w-[70vw] md:w-[70vw] lg:w-[55vw]">
 					<input
 						placeholder="Enter your email"

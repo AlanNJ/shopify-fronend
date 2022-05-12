@@ -29,15 +29,17 @@ export const CartPage = (props) => {
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
+		setLoading(true);
 		initializer();
 		props.getInitialData();
 		if (props.cart.cartProducts.length === 0) {
 			setSum(0);
 		}
-		if (props.user?.token === undefined) {
+		if (!props.user.token) {
 			navigate("/login");
 		}
-	}, [props?.cart?.cartProducts?.length || sum || props.user?.user?.token]);
+		setLoading(false);
+	}, [props?.cart?.cartProducts?.length || sum]);
 	useLayoutEffect(() => {
 		props.getInitialData();
 	}, [props.user?.user?.token || sum || props?.cart?.cartProducts]);
@@ -54,8 +56,9 @@ export const CartPage = (props) => {
 			});
 		}
 	};
-	console.log(sum);
-	console.log(props.cart.cartProducts);
+	if (!props?.user?.token) {
+		navigate("/login");
+	}
 
 	const cItem = async () => {
 		console.log(props?.cart?.cartProducts);
@@ -68,18 +71,16 @@ export const CartPage = (props) => {
 		}
 	};
 	const initializer = () => {
-		setLoading(true);
 		props.getCartData(params.id);
 
 		cItem();
 		calculateSum();
-		setLoading(false);
 	};
 
 	// if (props.cart.cartProducts) {
 	// 	console.log(cartItem?.post);
 	// }
-	console.log(cartItem);
+
 	const deleteItem = (key) => {
 		console.log(key);
 		let obj = { key: key, params: params };

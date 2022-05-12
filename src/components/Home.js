@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 
 import Header from "./Header";
@@ -19,31 +19,28 @@ import Loader from "./Loader";
 
 export const Home = (props) => {
 	const navigate = useNavigate();
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [lengthh, setLengthh] = useState(0);
 	useEffect(() => {
 		setLoading(true);
-		props.getInitialData();
-		props.getAllProducts();
 		getpost();
 
 		setLengthh(props.cart?.cartProducts?.length);
 		if (!props?.user?.user?.user?._id) {
 			navigate("/login");
 		}
-		setLoading(false);
 	}, [props.user?.user?.user?._id]);
 
-	console.log(props?.user?.user?.user?._id);
+	//console.log(props?.user?.user?.user);
 
 	const getpost = async () => {
-		setLoading(true);
-
 		if (props?.user?.user?.user?._id !== undefined) {
 			await props.getCartData(props?.user?.user?.user?._id);
+			props.getInitialData();
+			props.getAllProducts();
+			setLoading(false);
 		}
 
-		setLoading(false);
 		//return data;
 	};
 

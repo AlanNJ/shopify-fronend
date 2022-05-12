@@ -109,6 +109,7 @@ export const getInitialProducts = () => {
 };
 export const logout = () => {
 	return (dispatch) => {
+		localStorage.removeItem("User");
 		dispatch(logoutUser(null));
 	};
 };

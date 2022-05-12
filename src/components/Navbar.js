@@ -22,7 +22,6 @@ export const Navbar = (props) => {
 			props?.cart?.cartProducts.length ||
 			props.cart,
 	]);
-	console.log(length);
 
 	var id = props?.user?.user?.user?._id;
 
@@ -109,12 +108,14 @@ export const Navbar = (props) => {
 						</a>
 					</div>
 				</Link>
-				<Link to={`/cart/${id}`}>
-					<BsFillBagPlusFill className=" text-2xl md:text-3xl" />
-					<div className=" relative bottom-7  h-4 w-3 border-10 bg-red-500 text-white">
-						{props.user.user == null ? 0 : props.cart.cartProducts.length}
-					</div>
-				</Link>
+				{id !== undefined && (
+					<Link to={`/cart/${id}`}>
+						<BsFillBagPlusFill className=" text-2xl md:text-3xl" />
+						<div className=" relative bottom-7  h-4 w-3 border-10 bg-red-500 text-white">
+							{props.user.user == null ? 0 : props.cart.cartProducts.length}
+						</div>
+					</Link>
+				)}
 			</div>
 		</div>
 	);
