@@ -45,7 +45,6 @@ export const PurchasePage = (props) => {
 	//  		console.log(element);
 	//  	});
 	//  });
-	console.log(items[0]);
 
 	return (
 		<div>

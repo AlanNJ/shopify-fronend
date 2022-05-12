@@ -17,7 +17,7 @@ export const SingleCard = ({ params, user, loading, setLoading }) => {
 
 		axios
 			.get(
-				`https://shopify-backend7777.herokuapp.com/post/get-single-post/${params.id}`
+				`https://shopify-back1.herokuapp.com/post/get-single-post/${params.id}`
 			)
 			.then((res) => {
 				setPostt(res.data.post);

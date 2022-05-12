@@ -22,23 +22,24 @@ export const Home = (props) => {
 	const [loading, setLoading] = useState(true);
 	const [lengthh, setLengthh] = useState(0);
 	useEffect(() => {
-		setLoading(true);
+		helper();
+	}, [props.user?.user?.user?._id]);
+
+	//console.log(props?.user?.user?.user);
+	const helper = () => {
 		getpost();
 
 		setLengthh(props.cart?.cartProducts?.length);
 		if (!props?.user?.user?.user?._id) {
 			navigate("/login");
 		}
-	}, [props.user?.user?.user?._id]);
-
-	//console.log(props?.user?.user?.user);
-
+		setLoading(false);
+	};
 	const getpost = async () => {
 		if (props?.user?.user?.user?._id !== undefined) {
 			await props.getCartData(props?.user?.user?.user?._id);
 			props.getInitialData();
 			props.getAllProducts();
-			setLoading(false);
 		}
 
 		//return data;

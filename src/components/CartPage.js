@@ -20,6 +20,7 @@ import {
 } from "../actions";
 import Footer from "./Footer";
 import Loader from "./Loader";
+import { toast } from "react-toastify";
 
 export const CartPage = (props) => {
 	const params = useParams();
@@ -35,14 +36,12 @@ export const CartPage = (props) => {
 		if (props.cart.cartProducts.length === 0) {
 			setSum(0);
 		}
-		if (!props.user.token) {
-			navigate("/login");
-		}
+
 		setLoading(false);
 	}, [props?.cart?.cartProducts?.length || sum]);
-	useLayoutEffect(() => {
-		props.getInitialData();
-	}, [props.user?.user?.token || sum || props?.cart?.cartProducts]);
+	// useLayoutEffect(() => {
+	// 	props.getInitialData();
+	// }, [props.user?.user?.token || sum]);
 
 	const calculateSum = async () => {
 		var res = 0;
@@ -82,9 +81,9 @@ export const CartPage = (props) => {
 	// }
 
 	const deleteItem = (key) => {
-		console.log(key);
 		let obj = { key: key, params: params };
 		props.deletefromCart(obj);
+		toast.warning("Item deleted Successfully");
 	};
 
 	const makepayment = async (token) => {
@@ -105,8 +104,8 @@ export const CartPage = (props) => {
 		if (data.data.result) {
 			props.emptyCart();
 			setSum(0);
+			setLoading(false);
 		}
-		setLoading(false);
 	};
 	// const testFucn = async () => {
 	// 	let body = {
