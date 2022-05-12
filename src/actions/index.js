@@ -64,7 +64,7 @@ export const loginUser = (data) => {
 	return (dispatch) => {
 		console.log("hello");
 		axios
-			.post("https://shopify-backend7777.herokuapp.com/auth/login/", data)
+			.post("https://shopify-back1.herokuapp.com/auth/login", data)
 			.then((response) => {
 				console.log(response.data.user);
 				toast.success("Logged in successfully");
@@ -97,7 +97,7 @@ export const getInitialProducts = () => {
 	console.log("hello");
 	return (dispatch) => {
 		axios
-			.get("https://shopify-backend7777.herokuapp.com/post/get-post/")
+			.get("https://shopify-back1.herokuapp.com/post/get-post/")
 			.then((res) => {
 				console.log(res.data.post);
 				dispatch(setProducts(res.data.post));
@@ -121,7 +121,7 @@ export const add = (obj) => {
 	console.log(quantity);
 	return (dispatch) => {
 		axios
-			.post(`https://shopify-backend7777.herokuapp.com/post/add-to-cart/`, {
+			.post(`https://shopify-back1.herokuapp.com/post/add-to-cart/`, {
 				post: post,
 				id: idd,
 				total: total,
@@ -140,7 +140,7 @@ export const remove = (obj) => {
 	return (dispatch) => {
 		axios
 			.patch(
-				`https://shopify-backend7777.herokuapp.com/post/remove-item/${obj.key}`,
+				`https://shopify-back1.herokuapp.com/post/remove-item/${obj.key}`,
 				{
 					headers: obj.params,
 				}
@@ -154,9 +154,7 @@ export const getInitialDataCartData = (obj) => {
 	console.log(obj);
 	return (dispatch) => {
 		axios
-			.get(
-				`https://shopify-backend7777.herokuapp.com/post/get-cart-items/${obj}`
-			)
+			.get(`https://shopify-back1.herokuapp.com/post/get-cart-items/${obj}`)
 			.then((res) => dispatch(cartData(res.data.cartItems)));
 	};
 };

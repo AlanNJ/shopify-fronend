@@ -98,7 +98,7 @@ export const CartPage = (props) => {
 		};
 
 		const data = await axios.post(
-			"https://shopify-backend7777.herokuapp.com/post/payment",
+			"https://shopify-back1.herokuapp.com/post/payment",
 			body
 		);
 		console.log(data.data.result);

@@ -13,7 +13,7 @@ export const RegisterCard = () => {
 	const registerUser = async () => {
 		if (name && email && password && phone) {
 			const res = await axios.post(
-				"https://shopify-backend7777.herokuapp.com/auth/register/",
+				"https://shopify-back1.herokuapp.com/auth/register/",
 				{
 					name,
 					email,
