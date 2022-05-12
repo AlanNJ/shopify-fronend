@@ -61,8 +61,8 @@ export const Navbar = (props) => {
 	return (
 		<div className="w-[100vw] h-[10vh] border-2 flex justify-between items-center  px-2">
 			<img
-				src="/apple.png"
-				className="h-10 w-10 md:h-20 md:w-20"
+				src="/run8.png"
+				className="h-12 w-12  sm:h-14 w-14 md:h-15 w-15 lg:w-20 h-25 px-2"
 				onClick={(e) => navigate("/")}
 			/>
 			<div className="border-2 py-2 flex items-center justify-center hidden lg:block">
