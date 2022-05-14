@@ -28,7 +28,6 @@ export const RegisterCard = () => {
 				if (res.data.ok == true) {
 					navigate("/login");
 				}
-			console.log(res.data);
 		}
 		setLoading(false);
 	};

@@ -62,11 +62,9 @@ export const emptyCart = (data) => {
 };
 export const loginUser = (data) => {
 	return (dispatch) => {
-		console.log("hello");
 		axios
 			.post("https://shopify-back1.herokuapp.com/auth/login", data)
 			.then((response) => {
-				console.log(response.data.user);
 				toast.success("Logged in successfully");
 				setTimeout(() => {
 					dispatch(setUser(response.data.user));
@@ -74,7 +72,6 @@ export const loginUser = (data) => {
 				}, [2000]);
 			})
 			.catch((err) => {
-				console.log(err);
 				toast.error("Invalid Credentials");
 			});
 	};
@@ -82,8 +79,7 @@ export const loginUser = (data) => {
 export const getInitial = () => {
 	return (dispatch) => {
 		const data = JSON.parse(localStorage.getItem("User"));
-		console.log(data);
-		console.log(data);
+
 		dispatch(getInitialData(data));
 	};
 };
@@ -94,12 +90,10 @@ export const getInitial = () => {
 //  	return data.data.post;
 //  }
 export const getInitialProducts = () => {
-	console.log("hello");
 	return (dispatch) => {
 		axios
 			.get("https://shopify-back1.herokuapp.com/post/get-post/")
 			.then((res) => {
-				console.log(res.data.post);
 				dispatch(setProducts(res.data.post));
 			});
 		//console.log(result);
@@ -118,7 +112,7 @@ export const add = (obj) => {
 	let idd = obj.idd;
 	let total = obj.total;
 	let quantity = obj.quantity;
-	console.log(quantity);
+
 	return (dispatch) => {
 		axios
 			.post(`https://shopify-back1.herokuapp.com/post/add-to-cart/`, {
@@ -129,14 +123,13 @@ export const add = (obj) => {
 			})
 			.then((res) => {
 				dispatch(addtoCart(res.data));
-				console.log(res.data);
+
 				toast.success("Added to cart successfully");
 			})
 			.catch((err) => toast.error("Item already in cart"));
 	};
 };
 export const remove = (obj) => {
-	console.log(obj);
 	return (dispatch) => {
 		axios
 			.patch(
@@ -151,7 +144,6 @@ export const remove = (obj) => {
 	};
 };
 export const getInitialDataCartData = (obj) => {
-	console.log(obj);
 	return (dispatch) => {
 		axios
 			.get(`https://shopify-back1.herokuapp.com/post/get-cart-items/${obj}`)

@@ -55,9 +55,9 @@ export const AddToCart = (props) => {
 
 	const calculate = (e) => {
 		e.preventDefault();
-		console.log(price);
+
 		setQuantity(e.target.value);
-		console.log(typeof e.target.value);
+
 		let final = Number(price) * Number(e.target.value);
 		setTotal(final);
 	};

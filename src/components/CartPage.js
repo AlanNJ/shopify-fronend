@@ -46,9 +46,7 @@ export const CartPage = (props) => {
 	const calculateSum = async () => {
 		var res = 0;
 		if (props.cart?.cartProducts?.length !== 0) {
-			console.log(cartItem);
 			props.cart?.cartProducts?.map((item) => {
-				console.log(item?.total);
 				res = res + item?.total;
 				setSum(res);
 				return sum;
@@ -60,7 +58,6 @@ export const CartPage = (props) => {
 	}
 
 	const cItem = async () => {
-		console.log(props?.cart?.cartProducts);
 		if (props?.cart?.cartProducts !== null) {
 			setCartItem(
 				props.cart?.cartProducts?.map((item) => {
@@ -100,7 +97,7 @@ export const CartPage = (props) => {
 			"https://shopify-back1.herokuapp.com/post/payment",
 			body
 		);
-		console.log(data.data.result);
+
 		if (data.data.result) {
 			props.emptyCart();
 			setSum(0);
@@ -123,7 +120,7 @@ export const CartPage = (props) => {
 	// };
 	const docross = (e) => {
 		e.preventDefault();
-		console.log("hovered");
+
 		document.querySelector(".cross").classList.add("cross-display");
 	};
 

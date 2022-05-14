@@ -3,9 +3,7 @@ import { AiOutlineStar } from "react-icons/ai";
 
 export const ProductCard = ({ post }) => {
 	console.log(post);
-	const changePage = (i) => {
-		console.log(i.id);
-	};
+	const changePage = (i) => {};
 	return (
 		<div
 			className="w-[80vw]  sm:w-[50vw] md:w-[40vw]  gap-x-1 h-auto rounded shadow border-2 p-2 my-10"

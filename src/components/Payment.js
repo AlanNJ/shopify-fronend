@@ -33,7 +33,7 @@ export const Payment = () => {
 			"https://shopify-back1.herokuapp.com/post/payment",
 			body
 		);
-		console.log(data);
+
 		setPayment(true);
 	};
 	return (
