@@ -22,19 +22,20 @@ export const Home = (props) => {
 	const [loading, setLoading] = useState(false);
 	const [lengthh, setLengthh] = useState(0);
 	useEffect(() => {
-		setLoading(true);
 		helper();
-		props?.cart?.cartProducts?.length && setLoading(false);
-	}, [props.user?.user?.user?._id]);
+		//props?.cart?.cartProducts?.length && setLoading(false);
+	}, [props.user?.user?.user?._id || loading]);
 
 	//console.log(props?.user?.user?.user);
 	const helper = () => {
+		setLoading(true);
 		getpost();
 
 		setLengthh(props.cart?.cartProducts?.length);
 		if (!props?.user?.user?.user?._id) {
 			navigate("/login");
 		}
+		if (props.cart?.cartProducts) setLoading(false);
 	};
 	const getpost = async () => {
 		setLoading(true);
