@@ -26,7 +26,8 @@ const LoginCard = (props) => {
 		setLoading(true);
 		const loginDetails = { email, password };
 		await props.login(loginDetails);
-		setLoading(false);
+		if (props.user.user) setLoading(false);
+		return setLoading(false);
 	};
 
 	return (

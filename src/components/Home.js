@@ -19,10 +19,12 @@ import Loader from "./Loader";
 
 export const Home = (props) => {
 	const navigate = useNavigate();
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const [lengthh, setLengthh] = useState(0);
 	useEffect(() => {
+		setLoading(true);
 		helper();
+		props?.cart?.cartProducts?.length && setLoading(false);
 	}, [props.user?.user?.user?._id]);
 
 	//console.log(props?.user?.user?.user);
@@ -33,13 +35,13 @@ export const Home = (props) => {
 		if (!props?.user?.user?.user?._id) {
 			navigate("/login");
 		}
-		setLoading(false);
 	};
 	const getpost = async () => {
+		setLoading(true);
 		if (props?.user?.user?.user?._id !== undefined) {
 			await props.getCartData(props?.user?.user?.user?._id);
-			props.getInitialData();
-			props.getAllProducts();
+			await props.getInitialData();
+			await props.getAllProducts();
 		}
 
 		//return data;

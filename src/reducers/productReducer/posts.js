@@ -1,6 +1,7 @@
 import { GET_ALL_PRODUCTS } from "../../actions/actionTypes";
 const initialState = {
 	posts: null,
+	loading: true,
 };
 
 const productReducer = (state = initialState, action) => {
@@ -9,6 +10,7 @@ const productReducer = (state = initialState, action) => {
 			return {
 				...state,
 				posts: action.payload,
+				loading: false,
 			};
 		default:
 			return state;
