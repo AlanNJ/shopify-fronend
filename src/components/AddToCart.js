@@ -22,7 +22,7 @@ export const AddToCart = (props) => {
 
 		axios
 			.get(
-				`https://shopify-back1.herokuapp.com/post/get-single-post/${props.params.id}`
+				`https://shopify-backend-api.vercel.app/post/get-single-post/${props.params.id}`
 			)
 			.then((res) => {
 				console.log(res.data);

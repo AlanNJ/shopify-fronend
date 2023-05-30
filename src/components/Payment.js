@@ -30,7 +30,7 @@ export const Payment = () => {
 		};
 		console.log(token);
 		const data = await axios.post(
-			"https://shopify-back1.herokuapp.com/post/payment",
+			"https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/post/payment",
 			body
 		);
 

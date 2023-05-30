@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-
 import Header from "./Header";
 import Search from "./Search";
 import Banner from "./Banner";
