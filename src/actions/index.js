@@ -63,10 +63,7 @@ export const emptyCart = (data) => {
 export const loginUser = (data) => {
 	return (dispatch) => {
 		axios
-			.post(
-				"https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/auth/login",
-				data
-			)
+			.post("https://shopify-backend-api.vercel.app/api/login", data)
 			.then((response) => {
 				toast.success("Logged in successfully");
 				setTimeout(() => {
@@ -95,9 +92,7 @@ export const getInitial = () => {
 export const getInitialProducts = () => {
 	return (dispatch) => {
 		axios
-			.get(
-				"https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/post/get-post/"
-			)
+			.get("https://shopify-backend-api.vercel.app/post/get-post/")
 			.then((res) => {
 				dispatch(setProducts(res.data.post));
 			});
@@ -120,15 +115,12 @@ export const add = (obj) => {
 
 	return (dispatch) => {
 		axios
-			.post(
-				`https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/post/add-to-cart/`,
-				{
-					post: post,
-					id: idd,
-					total: total,
-					quantity: quantity,
-				}
-			)
+			.post(`https://shopify-backend-api.vercel.app/post/add-to-cart/`, {
+				post: post,
+				id: idd,
+				total: total,
+				quantity: quantity,
+			})
 			.then((res) => {
 				dispatch(addtoCart(res.data));
 
@@ -141,7 +133,7 @@ export const remove = (obj) => {
 	return (dispatch) => {
 		axios
 			.patch(
-				`https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/post/remove-item/${obj.key}`,
+				`https://shopify-backend-api.vercel.app/post/remove-item/${obj.key}`,
 				{
 					headers: obj.params,
 				}
@@ -154,9 +146,7 @@ export const remove = (obj) => {
 export const getInitialDataCartData = (obj) => {
 	return (dispatch) => {
 		axios
-			.get(
-				`https://shopify-back1.herokuapp.com/https://shopify-backend-api.vercel.app/post/get-cart-items/${obj}`
-			)
+			.get(`https://shopify-backend-api.vercel.app/post/get-cart-items/${obj}`)
 			.then((res) => dispatch(cartData(res.data.cartItems)));
 	};
 };

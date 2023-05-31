@@ -16,7 +16,7 @@ export const RegisterCard = () => {
 		setLoading(true);
 		if (name && email && password && phone) {
 			const res = await axios.post(
-				"https://shopify-back1.herokuapp.com/auth/register/",
+				"https://shopify-backend-api.vercel.app/api/register/",
 				{
 					name,
 					email,
